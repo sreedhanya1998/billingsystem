@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<table class="table">
+    <tr>
+        <td>id</td>
+        <td>item_name</td>
+        <td>qty_purchase</td>
+        <td>purchase_price</td>
+        <td>selling_price</td>
+          <td>date</td>
+    </tr>
+    {%for item in item%}
+    <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.item_name}}</td>
+        <td>{{item.qty_purchase}}</td>
+        <td>{{item.purchase_price}}</td>
+        <td>{{item.selling_price}}</td>
+        <td>{{item.date}}</td>
+         <td><a href="{%url 'item' %}">Add</a></td>
+        <td><a href="{%url 'view' item.id %}">View</a></td>
+        <td><a href="{%url 'edit' item.id%}">Edit</a></td>
+        <td><a href="{%url 'delete' item.id%}">Delete</a></td>
+    </tr>
+    {%endfor%}
+</table>
+</body>
+</html>
